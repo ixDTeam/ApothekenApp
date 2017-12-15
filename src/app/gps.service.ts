@@ -30,7 +30,7 @@ export class GPSService {
                   maximumAge: 300000, timeout: 5000, enableHighAccuracy: true
                 };
               navigator.geolocation.getCurrentPosition((position) => {
-                var data:Dataset =
+                var data:any =
                 {
                   lat: position.coords.latitude,
                   lng: position.coords.longitude,
