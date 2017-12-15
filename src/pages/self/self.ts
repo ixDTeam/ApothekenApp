@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the SearchPage page.
+ * Generated class for the SelfPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-search',
-  templateUrl: 'search.html',
+  selector: 'page-self',
+  templateUrl: 'self.html',
 })
-export class SearchPage {
+export class SelfPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
+    console.log('ionViewDidLoad SelfPage');
   }
 
 }
