@@ -1,20 +1,15 @@
 <ion-content padding>
 
-  <ion-scroll scrollX="true" style="height: 200px; white-space: nowrap; ">
+    <ion-list>
 
+		<ion-item class="text" *ngFor="let order of orders | async">
+      OrderID: {{order.OrderID | json}}
+      Medikament: {{order.Medikament | json}}
+      Dosennummer: {{order.Medikament.Dosennummer | json}}
+      Dosierung: {{order.Medikament.Dosennummer.Dosierung | json}}
+		</ion-item>
 
-  <ion-card *ngFor="let i of positions;" style="width: 235px; height: 144px; float: left;">
-    <ion-card-content >
-      <ion-card-title>
-        Nine Inch Nails Live
-        </ion-card-title>
-      <p>
-        The most popular industrial group ever, and largely
-        responsible for bringing the music to a mass audience.
-      </p>
-    </ion-card-content>
-  </ion-card>
+	</ion-list>
 
-</ion-scroll>
 
 </ion-content>
