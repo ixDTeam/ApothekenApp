@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { GPSService } from '../../app/gps.service';
 
 @Component({
   selector: 'page-contact',
@@ -8,7 +7,7 @@ import { GPSService } from '../../app/gps.service';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController, public gpsService: GPSService) {
+  constructor(public navCtrl: NavController) {
   }
 
 

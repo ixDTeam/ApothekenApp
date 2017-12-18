@@ -1,13 +1,20 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Wander-App</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <h2>Willkomen zu deiner Wanderung!</h2>
-  <button ion-item *ngFor="let position of positions; let i = index" (click)="itemSelected(i)">
-    <h2>Latitude: {{position.lat}}</h2>
-    <h2>Longitude: {{position.lng}}</h2>
-</button>
+
+  <ion-scroll scrollX="true" style="height: 200px; white-space: nowrap; ">
+
+
+  <ion-card *ngFor="let i of positions;" style="width: 235px; height: 144px; float: left;">
+    <ion-card-content >
+      <ion-card-title>
+        Nine Inch Nails Live
+        </ion-card-title>
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-scroll>
+
 </ion-content>

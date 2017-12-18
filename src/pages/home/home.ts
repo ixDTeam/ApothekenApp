@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { GPSService } from '../../app/gps.service';
+import { FirebaseService } from '../../app/firebase.service';
 import { DetailPage } from '../detail/detail';
 
 @Component({
@@ -9,23 +9,9 @@ import { DetailPage } from '../detail/detail';
 })
 export class HomePage {
 
-  private positions: any[] = [];
-  private temperature: any = 0;
-
-  constructor(public navCtrl: NavController, gpsService: GPSService) {
-        this.positions = gpsService.positions;
-        gpsService.gpsDataUpdated.subscribe((x) => {
-          this.positions = gpsService.positions;
-        });
+  constructor(public navCtrl: NavController, firebaseService: FirebaseService) {
 
   }
-
-
-  itemSelected(i){
-   this.navCtrl.push(DetailPage, {
-     index: i
-   });
- }
 
 
 }
