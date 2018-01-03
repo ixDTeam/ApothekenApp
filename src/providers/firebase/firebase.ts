@@ -1,32 +1,33 @@
-
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the FirebaseServiceProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FirebaseProvider {
 
-  constructor(public afd: AngularFireDatabase) {
-    console.log('Hello FirebaseProvider Provider');
+    orders: Observable<any[]>;
+    ordersRef: AngularFireList<any>;
+
+  constructor(public db: AngularFireDatabase) {
+        this.ordersRef = db.list('/Orders/');
+        this.orders = this.ordersRef.snapshotChanges().map(changes => {
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+        });
   }
 
-  getOrders(){
-    return this.afd.list('/orders/');
-  }
 
+      addItem(newElement: string) {
+        this.ordersRef.push({ Apotheke: newElement });
+      }
 
-  addOrder(order){
-    this.afd.list('/orders/').push(order);
-  }
+      deleteItem(key: string) {
+      this.ordersRef.remove(key);
+    }
 
-  removeitem(id){
-    this.afd.list('/orders/').remove(id);
+    updateItem(key: string, element: string, newElement: string) {
+    this.ordersRef.update(key, { Apotheke: newElement });
   }
 
 }
