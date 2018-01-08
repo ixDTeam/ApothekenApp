@@ -9,6 +9,11 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DetailPage } from '../pages/detail/detail';
 
+import { BMedikamentPage } from '../pages/b-medikament/b-medikament';
+import { BDosierungPage } from '../pages/b-dosierung/b-dosierung';
+import { BZusammenfassungPage } from '../pages/b-zusammenfassung/b-zusammenfassung';
+
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -34,7 +39,10 @@ const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    DetailPage
+    DetailPage,
+    BMedikamentPage,
+    BDosierungPage,
+    BZusammenfassungPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +58,10 @@ const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    DetailPage
+    DetailPage,
+    BMedikamentPage,
+    BDosierungPage,
+    BZusammenfassungPage
   ],
   providers: [
     StatusBar,

@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { Subject } from 'rxjs/Subject'
 
-/**
- * Generated class for the BMedikamentPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { BDosierungPage } from '../b-dosierung/b-dosierung';
+
 
 @IonicPage()
 @Component({
@@ -14,12 +12,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'b-medikament.html',
 })
 export class BMedikamentPage {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider ) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BMedikamentPage');
-  }
+
+nextStep(key){
+  this.navCtrl.push(BDosierungPage, {
+    medikament: key,
+  });
+  this.firebaseProvider.medikament = key;
+}
+
 
 }
